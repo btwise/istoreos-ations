@@ -6,10 +6,10 @@ on:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-  schedule:
-   - cron: 0 16 * * *
+        required: true
+        default: 'true'
+  #schedule:
+  # - cron: 0 16 * * *
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos
