@@ -65,7 +65,7 @@ CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
 
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+#CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 
 # adguardhome
 #CONFIG_PACKAGE_luci-app-adguardhome=y
@@ -78,6 +78,7 @@ CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 # rclone
 CONFIG_PACKAGE_rclone=y
 CONFIG_PACKAGE_fuse3-utils=y
+
 #SAMBA4
 CONFIG_PACKAGE_luci-app-samba4=y
 
