@@ -28,7 +28,7 @@ sed -i 's/192.168.1.1/192.168.31.254/g' package/base-files/files/bin/config_gene
 sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 # openclash
-svn export https://github.com/kenzok8/openwrt-packages/luci-app-openclash  package/luci-app-openclash
+#svn export https://github.com/kenzok8/openwrt-packages/luci-app-openclash  package/luci-app-openclash
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-openclash  package/luci-app-openclash
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
@@ -41,8 +41,8 @@ chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 #fi
 
 # adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/luci-app-adguardhome package/luci-app-adguardhome
-svn export https://github.com/kenzok8/openwrt-packages/adguardhome package/adguardhome
+#svn export https://github.com/kenzok8/openwrt-packages/luci-app-adguardhome package/luci-app-adguardhome
+#svn export https://github.com/kenzok8/openwrt-packages/adguardhome package/adguardhome
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/adguardhome
 
@@ -68,8 +68,8 @@ CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 
 # adguardhome
-CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+#CONFIG_PACKAGE_luci-app-adguardhome=y
+#CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
 
 # mosdns
 # CONFIG_PACKAGE_luci-app-mosdns=y
