@@ -34,8 +34,8 @@ jobs:
           - istoreos-22.03
           # - istoreos-23.05
         ARCHITECTURE:
-          - rk33xx
-          - rk35xx
+          #- rk33xx
+          #- rk35xx
           - x86
         os:
           - ubuntu-22.04
@@ -172,42 +172,42 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
-    - name: 上传固件目录
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      with:
-        name: OpenWrt_firmware${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE }}
+    # - name: 上传固件目录
+    #   uses: actions/upload-artifact@main
+    #   if: steps.organize.outputs.status == 'success' && !cancelled()
+    #   with:
+    #     name: OpenWrt_firmware${{ env.FILE_DATE }}
+    #     path: ${{ env.FIRMWARE }}
 
-    - name: 生成发布标签
-      id: tag
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H.%M")"
-        touch release.txt
-        echo "
-        💻 架构: ${{ matrix.ARCHITECTURE }}
+    # - name: 生成发布标签
+    #   id: tag
+    #   if: steps.compile.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+    #   run: |
+    #     echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H.%M")"
+    #     touch release.txt
+    #     echo "
+    #     💻 架构: ${{ matrix.ARCHITECTURE }}
 
-        📂 源码: ${{ env.REPO_URL }}
+    #     📂 源码: ${{ env.REPO_URL }}
 
-        🌳 分支: ${{ matrix.REPO_BRANCH }}
+    #     🌳 分支: ${{ matrix.REPO_BRANCH }}
 
-        ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
+    #     ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
 
-        🌐 管理地址: 10.0.0.1
+    #     🌐 管理地址: 10.0.0.1
 
-        👤 用户名: root
+    #     👤 用户名: root
 
-        🔒 密码: password " >> release.txt
-        echo "::set-output name=status::success"
+    #     🔒 密码: password " >> release.txt
+    #     echo "::set-output name=status::success"
 
-    - name: 自动发布固件到 Releases
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
+    # - name: 自动发布固件到 Releases
+    #   uses: softprops/action-gh-release@v1
+    #   if: steps.tag.outputs.status == 'success' && !cancelled()
+    #   with:
+    #     tag_name: ${{ steps.tag.outputs.release_tag }}
+    #     body_path: release.txt
+    #     files: ${{ env.FIRMWARE }}/*
 
     - name: 删除运行记录
       uses: GitRML/delete-workflow-runs@main
