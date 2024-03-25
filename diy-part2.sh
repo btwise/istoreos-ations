@@ -57,11 +57,11 @@ chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
 echo "
 # 额外组件
 CONFIG_GRUB_IMAGES=y
-CONFIG_VMDK_IMAGES=y
+#CONFIG_VMDK_IMAGES=y
 
 # 关机
 CONFIG_PACKAGE_luci-app-poweroff=y
-CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
+#CONFIG_PACKAGE_luci-i18n-poweroff-zh-cn=y
 
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
