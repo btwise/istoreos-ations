@@ -65,6 +65,11 @@ jobs:
         echo "------------------------------- 磁盘详情 -------------------------------\n"
         df -Th
 
+    - name: 安装 Go 1.21.1
+      uses: actions/setup-go@v1
+      with:
+        go-version: 1.21.1
+
     - name: 初始化编译环境
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -195,7 +200,7 @@ jobs:
 
         ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
 
-        🌐 管理地址: 10.0.0.1
+        🌐 管理地址: 192.168.31.254
 
         👤 用户名: root
 
@@ -221,5 +226,5 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 4
+        keep_latest: 2
         delete_tags: true
