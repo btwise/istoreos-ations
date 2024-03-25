@@ -92,7 +92,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        sudo -rf openwrt
+        sudo rm -rf openwrt
         git clone $REPO_URL -b ${{ matrix.REPO_BRANCH }} openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
