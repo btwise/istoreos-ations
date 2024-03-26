@@ -56,6 +56,9 @@ fi
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/mosdns package/mosdns
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/v2dat package/v2dat
 
+#修改分区大小
+sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g' .config
+
 echo "
 # 额外组件
 CONFIG_GRUB_IMAGES=y
@@ -84,8 +87,6 @@ CONFIG_PACKAGE_fuse3-utils=y
 #SAMBA4
 CONFIG_PACKAGE_luci-app-samba4=y
 
-#ROOT_PARTION_SIZE
-sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g' .config
 
 " >> .config
 
