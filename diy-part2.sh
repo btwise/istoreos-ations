@@ -32,13 +32,13 @@ sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac802
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-openclash  package/luci-app-openclash
 # 加入OpenClash核心
 chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
-# if [ "$1" = "rk33xx" ]; then
-#     $GITHUB_WORKSPACE/preset-clash-core.sh arm64
-# elif [ "$1" = "rk35xx" ]; then
-#     $GITHUB_WORKSPACE/preset-clash-core.sh arm64
-# elif [ "$1" = "x86" ]; then
+if [ "$1" = "rk33xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "rk35xx" ]; then
+    $GITHUB_WORKSPACE/preset-clash-core.sh arm64
+elif [ "$1" = "x86" ]; then
     $GITHUB_WORKSPACE/preset-clash-core.sh amd64
-#fi
+fi
 
 # adguardhome
 #svn export https://github.com/kenzok8/openwrt-packages/luci-app-adguardhome package/luci-app-adguardhome
