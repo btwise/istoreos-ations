@@ -58,7 +58,7 @@ $GITHUB_WORKSPACE/preset-clash-core.sh amd64
 # svn export https://github.com/kiddin9/openwrt-packages/trunk/v2dat package/v2dat
 
 #修改分区大小
-sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g' .config
+sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g' .config
 
 echo "
 # 额外组件
