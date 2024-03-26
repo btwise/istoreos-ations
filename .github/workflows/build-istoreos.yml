@@ -115,6 +115,7 @@ jobs:
         [ -e $FEEDS_CONF_PATH ] && mv $FEEDS_CONF_PATH openwrt/$FEEDS_CONF
         chmod +x $DIY_P1_SH
         cd openwrt
+        git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 软链接编译文件夹
