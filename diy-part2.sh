@@ -84,6 +84,9 @@ CONFIG_PACKAGE_fuse3-utils=y
 #SAMBA4
 CONFIG_PACKAGE_luci-app-samba4=y
 
+#ROOT_PARTION_SIZE
+sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/' .config
+
 " >> .config
 
 # 移除 ddns 和 ddnsto
