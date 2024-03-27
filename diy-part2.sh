@@ -71,13 +71,13 @@ CONFIG_PACKAGE_luci-app-poweroff=y
 
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-#CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 
 # ddns-go
 CONFIG_PACKAGE_luci-app-ddns-go=y
 
 #netspeedtest
-CONFIG_PACKAGE_luci-app-netspeedtest=y
+#CONFIG_PACKAGE_luci-app-netspeedtest=y
 
 #mwan3
 CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
