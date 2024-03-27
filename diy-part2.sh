@@ -80,7 +80,7 @@ CONFIG_PACKAGE_luci-app-ddns-go=y
 CONFIG_PACKAGE_luci-app-netspeedtest=y
 
 #mwan3
-CONFIG_PACKAGE_luci-app-mwan3=y
+CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
 
 # adguardhome
 #CONFIG_PACKAGE_luci-app-adguardhome=y
