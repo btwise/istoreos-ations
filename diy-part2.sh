@@ -76,6 +76,12 @@ CONFIG_PACKAGE_luci-app-openclash=y
 # ddns-go
 CONFIG_PACKAGE_luci-app-ddns-go=y
 
+#netspeedtest
+CONFIG_PACKAGE_luci-app-netspeedtest=y
+
+#mwan3
+CONFIG_PACKAGE_luci-app-mwan3=y
+
 # adguardhome
 #CONFIG_PACKAGE_luci-app-adguardhome=y
 #CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
