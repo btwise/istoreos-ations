@@ -116,7 +116,7 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         git clone https://github.com/sirpdboy/luci-app-ddns-go.git package/ddns-go
-        git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
+        #git clone https://github.com/sirpdboy/netspeedtest.git package/netspeedtest
         $GITHUB_WORKSPACE/$DIY_P1_SH
         
     - name: 软链接编译文件夹
