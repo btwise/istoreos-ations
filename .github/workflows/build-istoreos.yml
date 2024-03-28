@@ -8,8 +8,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  #schedule:
-  # - cron: 0 16 * * *
+  schedule:
+   - cron: 0 23 * * *
 
 env:
   REPO_URL: https://github.com/istoreos/istoreos
@@ -168,8 +168,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        #make -j$(nproc) || make -j1 || make -j1 V=s
-        make -j$(nproc) V=s
+        make -j$(nproc) || make -j1 || make -j1 V=s
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
@@ -241,5 +240,5 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 2
+        keep_latest: 4
         delete_tags: true
