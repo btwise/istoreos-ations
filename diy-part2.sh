@@ -79,6 +79,9 @@ CONFIG_PACKAGE_luci-app-ddns-go=y
 #netspeedtest
 #CONFIG_PACKAGE_luci-app-netspeedtest=y
 
+#parentcontrol
+CONFIG_PACKAGE_luci-app-parentcontrol=y
+
 #mwan3
 CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
 
