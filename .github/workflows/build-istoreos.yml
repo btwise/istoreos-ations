@@ -124,12 +124,10 @@ jobs:
       run: |
           sudo chmod -R 777 /mnt
           #---------------------#
-          mkdir /mnt/staging_dir
-          ln -s /mnt/staging_dir ./staging_dir
-          du -sh /mnt/staging_dir
-          #---------------------#
-          mkdir /mnt/build_dir
-          ln -s /mnt/build_dir ./build_dir
+          sudo mkdir -p -m 777 /mnt/dl /mnt/staging_dir /mnt/build_dir
+          ln -sf /mnt/dl ./dl
+          ln -sf /mnt/staging_dir ./staging_dir
+          ln -sf /mnt/.build_dir ./build_dir
           du -sh /mnt/build_dir
           echo "软链接成功！"
 
