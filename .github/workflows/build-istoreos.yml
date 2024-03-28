@@ -146,7 +146,12 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        patch -p0 $GITHUB_WORKSPACE/disable_flock.patch
+        patch -p0 < $GITHUB_WORKSPACE/disable_flock.patch
+        if [ $? -eq 0 ]; then
+           echo "Patch applied successfully"
+        else
+           echo "Patch application failed"
+        fi
 
     - name: SSH 连接到 Actions
       uses: P3TERX/ssh2actions@v1.0.0
