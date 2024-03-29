@@ -101,6 +101,9 @@ CONFIG_PACKAGE_fuse3-utils=y
 #SAMBA4
 CONFIG_PACKAGE_luci-app-samba4=y
 
+#luci-app-mosdns
+CONFIG_PACKAGE_luci-app-mosdns=y
+
 #SSR-PLUS
 
 CONFIG_PACKAGE_luci-app-ssr-plus=y
