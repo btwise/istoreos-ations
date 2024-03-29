@@ -144,7 +144,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE_PATH ] && mv $CONFIG_FILE_PATH openwrt/$CONFIG_FILE
         chmod +x $DIY_P2_SH
-        mv $GITHUB_WORKSPACE/disable_flock.patch openwort/
+        mv $GITHUB_WORKSPACE/disable_flock.patch openwrt/
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
         patch -p1 < disable_flock.patch
