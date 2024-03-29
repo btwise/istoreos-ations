@@ -13,7 +13,7 @@
 # 修改openwrt登陆地址,把下面的 10.0.0.1 修改成你想要的就可以了
 sed -i 's/192.168.1.1/192.168.31.254/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.100.1/192.168.31.254/g' package/istoreos-files/Makefile
-sed -i '/local bridge=\$2/a\local protocol="static"  # Set protocol to static' package/base-files/files/bin/config_generate
+#sed -i '/local bridge=\$2/a\local protocol="static"' package/base-files/files/bin/config_generate
 #sed -i "s/set network.\$1.proto='.*'/set network.\$1.proto='static'/" package/base-files/files/bin/config_generate
 sed -i 's/set network.\$1.proto='\''\$protocol'\''/set network.\$key.proto='\''static'\''/g' package/base-files/files/bin/config_generate
 sed -i 's/set network.\$1.auto='\''0'\''/set network.\$key.ipaddr='\''192.168.31.254'\''\nset network.\$key.netmask='\''255.255.255.0'\''\nset network.\$1.auto='\''0'\''/g' package/base-files/files/bin/config_generate
