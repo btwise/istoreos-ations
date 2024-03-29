@@ -144,8 +144,10 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE_PATH ] && mv $CONFIG_FILE_PATH openwrt/$CONFIG_FILE
         chmod +x $DIY_P2_SH
+        mv $GITHUB_WORKSPACE/disable_flock.patch openwort/
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        patch -p1 < disable_flock.patch
 
     - name: SSH 连接到 Actions
       uses: P3TERX/ssh2actions@v1.0.0
