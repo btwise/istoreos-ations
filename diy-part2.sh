@@ -13,8 +13,8 @@
 # 修改openwrt登陆地址,把下面的 10.0.0.1 修改成你想要的就可以了
 sed -i 's/192.168.1.1/192.168.31.254/g' package/base-files/files/bin/config_generate
 sed -i 's/192.168.100.1/192.168.31.254/g' package/istoreos-files/Makefile
-# sed -i '/local bridge=\$2/a\local protocol="static"  # Set protocol to static' package/base-files/files/bin/config_generate
-sed -i "s/set network.\$1.proto='.*'/set network.\$1.proto='static'/" package/base-files/files/bin/config_generate
+sed -i '/local bridge=\$2/a\local protocol="static"  # Set protocol to static' package/base-files/files/bin/config_generate
+#sed -i "s/set network.\$1.proto='.*'/set network.\$1.proto='static'/" package/base-files/files/bin/config_generate
 # 修改 子网掩码
 #sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
 
@@ -156,9 +156,3 @@ sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootst
 # sed -i 's/CONFIG_PACKAGE_kmod-mt7921-firmware=y/CONFIG_PACKAGE_kmod-mt7921-firmware=n/' .config
 # sed -i 's/CONFIG_PACKAGE_kmod-mt7921e=y/CONFIG_PACKAGE_kmod-mt7921e=n/' .config
 # sed -i 's/CONFIG_PACKAGE_kmod-mt7921u=y/CONFIG_PACKAGE_kmod-mt7921u=n/' .config
-patch -p0 < $GITHUB_WORKSPACE/disable_flock.patch
-if [ $? -eq 0 ]; then
-    echo "Patch applied successfully"
-else
-    echo "Patch application failed"
-fi
