@@ -148,6 +148,8 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
         patch -p1 < disable_flock.patch
+        rm -rf feeds/packages/lang/golang
+        git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
     - name: SSH 连接到 Actions
       uses: P3TERX/ssh2actions@v1.0.0
