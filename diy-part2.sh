@@ -15,10 +15,25 @@ sed -i 's/192.168.1.1/192.168.31.254/g' package/base-files/files/bin/config_gene
 sed -i 's/192.168.100.1/192.168.31.254/g' package/istoreos-files/Makefile
 #sed -i '/local bridge=\$2/a\local protocol="static"' package/base-files/files/bin/config_generate
 #sed -i "s/set network.\$1.proto='.*'/set network.\$1.proto='static'/" package/base-files/files/bin/config_generate
-sed -i 's/set network.\$1.proto='\''\$protocol'\''/set network.\$key.proto='\''static'\''/g' package/base-files/files/bin/config_generate
-sed -i 's/set network.\$1.auto='\''0'\''/set network.\$key.ipaddr='\''192.168.31.254'\''\nset network.\$key.netmask='\''255.255.255.0'\''\nset network.\$1.auto='\''0'\''/g' package/base-files/files/bin/config_generate
+#sed -i 's/set network.\$1.proto='\''\$protocol'\''/set network.\$key.proto='\''static'\''/g' package/base-files/files/bin/config_generate
+#sed -i 's/set network.\$1.auto='\''0'\''/set network.\$key.ipaddr='\''192.168.31.254'\''\nset network.\$key.netmask='\''255.255.255.0'\''\nset network.\$1.auto='\''0'\''/g' package/base-files/files/bin/config_generate
 # 修改 子网掩码
 #sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
+
+#让编译后的镜像第一次启动时，如果检测到网卡只有一个，自动设置网卡IP地址为静态，而不是DHCP自动获取
+# 使用sed命令将给定的脚本内容插入到rc.local文件中exit 0之前
+
+sed -i '/exit 0/i\
+if [ ! -f /etc/.firstboot_done ]; then\n\
+    if [ $(lspci | grep -i 'Ethernet controller' | wc -l) -eq 1 ]; then\n\
+        uci set network.lan.proto='static'\n\
+        network.lan.ip6assign='60'\n\
+        network.lan.ipaddr='192.168.31.253'\n\
+        network.lan.netmask='255.255.255.0'\n\
+        uci commit network\n\
+    fi\n\
+    touch /etc/.firstboot_done\n\
+fi' package/base-files/files/etc/rc.local
 
 # 修改主机名字，把 iStore OS 修改你喜欢的就行（不能纯数字或者使用中文）
 # sed -i 's/OpenWrt/iStore OS/g' package/base-files/files/bin/config_generate
