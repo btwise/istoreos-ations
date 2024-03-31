@@ -66,10 +66,10 @@ sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=256/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g
 #预留all.run文件镜像分区里
 sed -i '/$(VERSION_SED_SCRIPT) \\/i \
 # Download the file from a specific URL\n\
-wget -O $(PKG_BUILD_DIR)/all.run https://raw.githubusercontent.com/wukongdaily/allinonescript/main/all/all.run\n\
-chmod +x $(PKG_BUILD_DIR)/all.run\n\
+wget -O $(PKG_BUILD_DIR)/all.run https://raw.githubusercontent.com/wukongdaily/allinonescript/main/all/all.run;\n\
+chmod +x $(PKG_BUILD_DIR)/all.run;\n\
 # Copy the downloaded file to /opt/apps\n\
-$(CP) $(PKG_BUILD_DIR)/all.run $(1)/opt/apps/' package/base-files/Makefile
+$(CP) $(PKG_BUILD_DIR)/all.run $(1)/opt/apps/;' package/base-files/Makefile
 
 echo "
 # 额外组件
