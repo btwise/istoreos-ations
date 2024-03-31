@@ -20,6 +20,8 @@ CLASH_META_URL="https://github.com/vernesong/OpenClash/raw/core/master/meta/clas
 GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
 GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
 ALLRUN_URL="https://raw.githubusercontent.com/wukongdaily/allinonescript/main/all/all.run"
+SSRPLUS_URL="https://raw.githubusercontent.com/AUK9527/Are-u-ok/main/x86/all/SSR-Plus_188-3_x86_64_all_sdk_22.03.6.run"
+
 
 wget -qO- $CLASH_DEV_URL | tar xOvz > $core_path/clash
 wget -qO- $CLASH_TUN_URL | gunzip -c > $core_path/clash_tun
@@ -30,6 +32,7 @@ wget -qO- $CLASH_META_URL | tar xOvz > $core_path/clash_meta
 wget -qO- $GEOIP_URL > $goe_path/GeoIP.dat
 wget -qO- $GEOSITE_URL > $goe_path/GeoSite.dat
 wget -P $all_run_path $ALLRUN_URL
+wget -O $all_run_path/ssr.run $SSRPLUS_URL
 
 chmod +x $core_path/clash*
-chmod +x $all_run_path/all.run
+chmod +x $all_run_path/*.run
