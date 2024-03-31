@@ -69,7 +69,7 @@ sed -i '/$(VERSION_SED_SCRIPT) \\/i \
 wget -O $(PKG_BUILD_DIR)/all.run https://raw.githubusercontent.com/wukongdaily/allinonescript/main/all/all.run\n\
 chmod +x $(PKG_BUILD_DIR)/all.run\n\
 # Copy the downloaded file to /opt/apps\n\
-$(CP) $(PKG_BUILD_DIR)/all.run $(1)/opt/apps/' package/istoreos-files/Makefile
+$(CP) $(PKG_BUILD_DIR)/all.run $(1)/opt/apps/' package/base-files/Makefile
 
 echo "
 # 额外组件
